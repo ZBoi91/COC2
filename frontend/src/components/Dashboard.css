@@ -1,0 +1,23 @@
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex: 1;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar-buttons {
+  display: flex;
+  justify-content: right;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Adjust column width as needed */
+  gap: 20px; /* Adjust gap between grid items as needed */
+}
