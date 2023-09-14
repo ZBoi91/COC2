@@ -5,10 +5,10 @@ import Messages2 from "./Messages2";
 import { Link } from "react-router-dom";
 
 const Messages = ({ setAuth }) => {
-  const [users, setUsers] = useState([]); // State to store the list of users
-  const [messages, setMessages] = useState([]); // State to store all chat messages
-  const [selectedUser, setSelectedUser] = useState(null); // Add a state for the selected user
-  const [messageContent, setMessageContent] = useState(""); // State to store the message being typed
+  const [users, setUsers] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [messageContent, setMessageContent] = useState("");
   const [message, setMessage] = useState([]);
   const [filteredMessage, setFilteredMessage] = useState([]);
   const jwtTokenKey = "JWTToken";
@@ -37,6 +37,7 @@ const Messages = ({ setAuth }) => {
           throw new Error(`HTTP error! Status: ${res.status}`);
         }
         const responseData = await res.json(); // Parse the response data once
+        console.log(responseData);
 
         const uniqueUsers = [
           ...new Set(responseData.map((message) => message.SenderID)),
@@ -59,52 +60,56 @@ const Messages = ({ setAuth }) => {
     };
     fetchData();
   }, [getJWT]);
-  console.log(getJWT);
 
   const handleUserSelect = (user) => {
     setSelectedUser(user);
   };
 
-  useEffect(() => {}, [messages]);
-
   const handleSendMessage = async () => {
-    console.log(currentUserID);
-    if (messageContent.trim() !== "") {
-      try {
-        const res = await fetch("http://localhost:5000/api/message", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${getJWT}`,
-          },
-          body: JSON.stringify({
-            ChatID: currentUserID,
-            MessageContent: messageContent,
-            MessageID: 16, // solve for this
-            SenderID: 3, //solve for this
-          }),
-        });
+    try {
+      const res = await fetch("http://localhost:5000/api/message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${getJWT}`,
+        },
+        body: JSON.stringify({
+          ChatID: currentUserID,
+          SenderID: currentUserID, // Set SenderID to the current user's ID
+          MessageContent: messageContent,
+        }),
+      });
+      if (res.ok) {
+        console.log("Message added");
 
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
+        // Fetch the updated messages from the server
+        const updatedMessagesResponse = await fetch(
+          "http://localhost:5000/api/message",
+          {
+            headers: {
+              Authorization: `Bearer ${getJWT}`,
+            },
+          }
+        );
+
+        if (!updatedMessagesResponse.ok) {
+          throw new Error(
+            `HTTP error! Status: ${updatedMessagesResponse.status}`
+          );
         }
 
-        // Create a new message object
-        const newMessage = {
-          UserID: currentUserID,
-          Name: message.Name,
-          MessageContent: messageContent,
-          // Add any other properties you have for messages
-        };
+        const updatedMessagesData = await updatedMessagesResponse.json();
+        console.log(updatedMessagesData);
 
-        // Update the messages state with the new message
-        setMessages([...messages, newMessage]);
+        // Update the state with the new messages
+        setMessages(updatedMessagesData);
+        setFilteredMessage(updatedMessagesData);
 
         // Clear the message input field
         setMessageContent("");
-      } catch (error) {
-        console.error("Error sending message:", error);
       }
+    } catch (error) {
+      console.error("Error sending message:", error);
     }
   };
 
@@ -115,11 +120,11 @@ const Messages = ({ setAuth }) => {
         <div className="user-list">
           {users.map((user) => (
             <div
-              key={user.id} // Replace with the actual user ID field
+              key={user.id}
               onClick={() => handleUserSelect(user)}
               className="user-item"
             >
-              {user.Name} {/* Replace with the actual name field */}
+              {user.Name}
             </div>
           ))}
         </div>

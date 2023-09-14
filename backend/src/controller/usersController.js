@@ -38,7 +38,7 @@ const addUsers = async (req, res) => {
     [UserID, Email, Password, Name, Location],
     (error, results) => {
       if (error) throw error;
-      res.status(201).send("User added successfully!");
+      res.status(201).send("User added successfully123!");
     }
   );
 };
@@ -75,7 +75,6 @@ const updateUsers = async (req, res) => {
     }
   );
 };
-
 
 module.exports = {
   getUsers,

@@ -8,10 +8,33 @@ const Dashboard = ({ setAuth }) => {
   const [games, setGames] = useState([]);
   const [filteredGames, setFilteredGames] = useState([]); // Store the filtered games
 
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
   const logoutHandler = async () => {
     const res = await fetch("http://localhost:5000/auth/logout");
     console.log(res);
     setAuth(false);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/COC/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("JWTToken")}`,
+        },
+      });
+
+      const parsedRes = await response.json();
+
+      console.log(parsedRes);
+
+      const newGames = games.filter((game) => game.CardsID !== id);
+      setGames(newGames);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
@@ -55,6 +78,11 @@ const Dashboard = ({ setAuth }) => {
                       </Link>
                       <p>{game.Price}</p>
                       <img src={game.Image} alt={game.Name} />
+                      {userInfo.role === "admin" && (
+                        <button onClick={() => handleDelete(game.CardsID)}>
+                          Delete
+                        </button>
+                      )}
                     </div>
                   ))}
               </div>

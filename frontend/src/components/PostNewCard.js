@@ -1,5 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
+
+const jwtTokenKey = "JWTToken";
+const getJWT = localStorage.getItem(jwtTokenKey);
 
 const PostNewCard = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -38,9 +42,13 @@ const PostNewCard = ({ setAuth }) => {
       };
 
       console.log({ body });
+
       const response = await fetch("http://localhost:5000/api/COC", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${getJWT}`,
+        },
         body: JSON.stringify(body),
       });
 
@@ -62,6 +70,7 @@ const PostNewCard = ({ setAuth }) => {
 
   return (
     <Fragment>
+      <Navbar logoutHandler={logoutHandler} />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">

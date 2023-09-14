@@ -29,6 +29,7 @@ const Register = () => {
       });
 
       const parseRes = await response.json();
+      console.log(parseRes);
 
       if (parseRes.status === "ok") {
         navigate("/login");

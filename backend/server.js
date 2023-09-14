@@ -5,8 +5,6 @@ const app = express();
 const helmet = require("helmet");
 const ratelimit = require("express-rate-limit");
 
-
-
 const authRoutes = require("./src/router/authRoutes");
 const limit = ratelimit({
   windowMs: 15 * 60 * 1000, // 15 min
@@ -34,24 +32,26 @@ app.use(limit);
 app.use("/api/COC", cardsRoutes);
 app.use("/api", usersRoutes);
 app.use("/api", wishlistRoutes);
-app.use("/api", chatRoutes);
+// app.use("/api", chatRoutes);
 app.use("/api", messageRoutes);
 
 // app.use("/auth", require("./src/router/jwtauth"));
 app.use("/auth", authRoutes);
 
-app.get('/api/users/:userId', async (req, res) => {
+app.get("/api/users/:userId", async (req, res) => {
   const userId = req.params.userId;
   try {
-    const { rows } = await pool.query('SELECT * FROM users WHERE userid = $1', [userId]);
+    const { rows } = await pool.query("SELECT * FROM users WHERE userid = $1", [
+      userId,
+    ]);
     if (rows.length === 1) {
       res.json(rows[0]);
     } else {
-      res.status(404).json({ message: 'User not found' });
+      res.status(404).json({ message: "User not found" });
     }
   } catch (error) {
-    console.error('Error fetching user:', error);
-    res.status(500).json({ message: 'Internal server error' });
+    console.error("Error fetching user:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 

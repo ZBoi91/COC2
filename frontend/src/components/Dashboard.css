@@ -20,4 +20,36 @@
     minmax(200px, 1fr)
   ); /* Adjust column width as needed */
   gap: 20px; /* Adjust gap between grid items as needed */
+  color: grey;
+}
+
+.game-item {
+  border: 1px solid #ccc; /* Add a 1px solid border with a gray color */
+  padding: 10px; /* Add some padding to the grid items */
+  display: flex; /* Use flexbox to center content */
+  flex-direction: column; /* Stack child elements vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Adjust the minmax values to reduce the size */
+  gap: 30px;
+}
+
+.game-item img {
+  max-width: 100%; /* Set the maximum width to 100% of the container */
+  max-height: 300px; /* Set the maximum height to your desired value */
+  width: auto; /* Ensure that the image scales proportionally */
+  height: auto; /* Ensure that the image scales proportionally */
+}
+
+.price {
+  color: green; /* Set the text color to green */
+  font-weight: bold; /* Add bold font weight for emphasis (optional) */
+  /* Add other styling as needed */
 }

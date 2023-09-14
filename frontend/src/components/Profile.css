@@ -1,11 +1,42 @@
 .profile {
   display: flex;
-  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
 }
+
 .sidebar {
   width: 200px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
 }
+
 .listItems {
-  display: flex;
   flex: 1;
+  padding: 20px;
+}
+
+/* Style for headings */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style for game items */
+.games-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for images */
+.games-item img {
+  max-width: 100% !important; /* Ensure the image scales down within its container */
+  max-height: 150px !important; /* Set a maximum height to control the size */
+  width: auto !important; /* Allow the width to adjust proportionally with the max-height */
+  height: auto !important; /* Allow the height to adjust proportionally with the max-width */
+  object-fit: cover !important; /* Maintain the aspect ratio and crop if needed */
 }

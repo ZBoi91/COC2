@@ -16,10 +16,11 @@ const addCards = async (req, res) => {
   try {
     const { SellerID, Games, Name, Price, Description, CardsID, Image } =
       req.body;
+      console.log('addCards')
 
-    if (req.decoded.UserID != SellerID && req.decoded.role !== "admin") {
-      return res.status(401).json({ status: "error", msg: "Unauthorized!" });
-    }
+    // if (req.decoded.UserID != SellerID && req.decoded.role !== "admin") {
+    //   return res.status(401).json({ status: "error", msg: "Unauthorized!" });
+    // }
 
     await pool.query(queries.addCards, [
       SellerID,
@@ -30,10 +31,11 @@ const addCards = async (req, res) => {
       CardsID,
       Image,
     ]);
-    res.status(201).send("Card added successfully!");
+    console.log('Games')
+    res.status(201).json({ Message: "Card added successfully!" });
   } catch (err) {
     console.error(err);
-    res.status(500).send("Internal server error");
+    res.status(500).json({ Message: "Internal server error" });
   }
 };
 
