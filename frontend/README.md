@@ -33,52 +33,29 @@ Express
 React
 Node
 
-
 ## Screenshots
 
-### Landing Page
+<img width="1428" alt="LandingPage" src="https://github.com/ZBoi91/COC2/blob/main/Screenshots/Screenshot%202023-09-15%20152316.png">
 
-<img width="1428" alt="LandingPage" src="https://github.com/di-wee/Project-Manhatten-D/assets/126299115/2180d38b-05ab-4bf9-ba38-4952c55840dc">
+<img width="1430" alt="LandingPage" src="https://github.com/ZBoi91/COC2/blob/main/Screenshots/Screenshot%202023-09-15%20152234.png">
 
-### Product Category Page
+<img width="1429" alt="ProfilePage" src="https://github.com/ZBoi91/COC2/blob/main/Screenshots/Screenshot%202023-09-15%20152343.png">
 
-<img width="1430" alt="ProductCategoryPage" src="https://github.com/di-wee/Project-Manhatten-D/assets/126299115/0df69e91-2e56-4f7c-86fa-c61ade52b43d">
-
-### Product Details Modal
-
-<img width="1429" alt="ProductDetailsModal" src="https://github.com/di-wee/Project-Manhatten-D/assets/126299115/9a5c8dee-918d-432a-8c73-e425e955e7ee">
-
-### Shopping Cart
-
-![shoppingCart](https://github.com/di-wee/Project-Manhatten-D/assets/126299115/9d14f580-e9ed-4d45-a58e-45c940993845)
-
-### Checkout
-
-<img width="1431" alt="CheckoutPage" src="https://github.com/di-wee/Project-Manhatten-D/assets/126299115/4a393513-b178-4421-86ac-792ba4967b33">
-
-### Payment
-
-![Payment](https://github.com/di-wee/Project-Manhatten-D/assets/126299115/9696cd5e-ca36-46e4-a017-9afb0056b1a8)
-
-### Order Confirmation
-
-![OrderConfirmation](https://github.com/di-wee/Project-Manhatten-D/assets/126299115/d4f602e3-d7f4-4e0e-b92a-4e4a4d8812ad)
-
+<img width="1429" alt="Addlisting" src="https://github.com/ZBoi91/COC2/blob/main/Screenshots/Screenshot%202023-09-15%20152442.png">
 
 ## API Endpoints
 
-POST   {{server}}/api/login
-POST   {{server}}/api/register
-GET    {{server}}/api/COC
-GET    {{server}}/api/COC/
-POST   {{server}}/api/COC
-DEL    {{server}}/api/COC
-GET    {{server}}/api/users
-POST   {{server}}/api/users
-GET    {{server}}/api/messages
-GET    {{server}}/api/messages
-POST    {{server}}/api/messages/:id
-
+POST {{server}}/api/login
+POST {{server}}/api/register
+GET {{server}}/api/COC
+GET {{server}}/api/COC/
+POST {{server}}/api/COC
+DEL {{server}}/api/COC
+GET {{server}}/api/users
+POST {{server}}/api/users
+GET {{server}}/api/messages
+GET {{server}}/api/messages
+POST {{server}}/api/messages/:id
 
 ## Next Steps
 
@@ -90,4 +67,3 @@ POST    {{server}}/api/messages/:id
 ## Contact
 
 [LinkedIn](https://www.linkedin.com/in/chencheeyuen/)
-
