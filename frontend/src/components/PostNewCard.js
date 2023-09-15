@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
 
 const jwtTokenKey = "JWTToken";
 const getJWT = localStorage.getItem(jwtTokenKey);
@@ -70,7 +69,6 @@ const PostNewCard = ({ setAuth }) => {
 
   return (
     <Fragment>
-      <Navbar logoutHandler={logoutHandler} />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">

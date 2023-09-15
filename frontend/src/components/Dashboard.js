@@ -32,6 +32,16 @@ const Dashboard = ({ setAuth }) => {
 
       const newGames = games.filter((game) => game.CardsID !== id);
       setGames(newGames);
+
+      if (response.ok) {
+        const newGames = filteredGames.filter((game) => game.CardsID !== id);
+        setFilteredGames(newGames);
+      } else {
+        console.error(
+          "Failed to delete the game. HTTP status:",
+          response.status
+        );
+      }
     } catch (error) {
       console.error(error);
     }
