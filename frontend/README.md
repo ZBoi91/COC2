@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Cards of Commerce
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A mock e-commerce website for user to user transactions regarding game cards.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Screenshots](#screenshots)
+- [API Endpoints](#api-endpoints)
+- [Next Steps](#next-steps)
+- [Contact](#contact)
 
-### `npm start`
+## About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is an app for Card collectors/enjoyers to buy and sell cards.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Display of cards in their relevant games (Pokemon, Yugioh, or MTG)
+- Basic messaging system
+- Post cards that you want to buy or trade for
+- Sorting based on the type of game
+- Admins are able to delete any card
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+PERN Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Postgresql
+Express
+React
+Node
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+### Landing Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img width="1428" alt="LandingPage" src="https://github.com/di-wee/Project-Manhatten-D/assets/126299115/2180d38b-05ab-4bf9-ba38-4952c55840dc">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Product Category Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img width="1430" alt="ProductCategoryPage" src="https://github.com/di-wee/Project-Manhatten-D/assets/126299115/0df69e91-2e56-4f7c-86fa-c61ade52b43d">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Product Details Modal
 
-## Learn More
+<img width="1429" alt="ProductDetailsModal" src="https://github.com/di-wee/Project-Manhatten-D/assets/126299115/9a5c8dee-918d-432a-8c73-e425e955e7ee">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Shopping Cart
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![shoppingCart](https://github.com/di-wee/Project-Manhatten-D/assets/126299115/9d14f580-e9ed-4d45-a58e-45c940993845)
 
-### Code Splitting
+### Checkout
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img width="1431" alt="CheckoutPage" src="https://github.com/di-wee/Project-Manhatten-D/assets/126299115/4a393513-b178-4421-86ac-792ba4967b33">
 
-### Analyzing the Bundle Size
+### Payment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Payment](https://github.com/di-wee/Project-Manhatten-D/assets/126299115/9696cd5e-ca36-46e4-a017-9afb0056b1a8)
 
-### Making a Progressive Web App
+### Order Confirmation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![OrderConfirmation](https://github.com/di-wee/Project-Manhatten-D/assets/126299115/d4f602e3-d7f4-4e0e-b92a-4e4a4d8812ad)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## API Endpoints
 
-### Deployment
+POST   {{server}}/api/login
+POST   {{server}}/api/register
+GET    {{server}}/api/COC
+GET    {{server}}/api/COC/
+POST   {{server}}/api/COC
+DEL    {{server}}/api/COC
+GET    {{server}}/api/users
+POST   {{server}}/api/users
+GET    {{server}}/api/messages
+GET    {{server}}/api/messages
+POST    {{server}}/api/messages/:id
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Next Steps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add more editing details for admin
+- Add more types of different game cards
+- Better design
+- Try to remake to make the design (both frontend and backend) much better and intuitive
+
+## Contact
+
+[LinkedIn](https://www.linkedin.com/in/chencheeyuen/)
+
